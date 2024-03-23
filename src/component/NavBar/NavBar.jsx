@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-
+import './Navbar.css'
 const NavBar = () => {
     return (
         <nav className="max-w-screen-xl mx-auto flex justify-between py-12 items-center">

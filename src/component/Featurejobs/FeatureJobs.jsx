@@ -11,7 +11,7 @@ const FeatureJobs = () => {
     } ,[])
     
     return (
-        <section >
+        <section className="max-w-screen-xl mx-auto">
             <Pageheading title='Featured Jobs'
              discription='Explore thousands of job opportunities with all the information you need. Its your future'>
              </Pageheading>

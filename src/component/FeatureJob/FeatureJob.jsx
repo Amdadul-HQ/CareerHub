@@ -1,7 +1,8 @@
 import { CiLocationOn } from "react-icons/ci";
 import { AiOutlineDollarCircle } from "react-icons/ai";
+import { Link } from "react-router-dom";
 const FeatureJob = ({job}) => {
-    const {logo,job_title,company_name,remote_or_onsite,location,job_type,salary} = job
+    const {id,logo,job_title,company_name,remote_or_onsite,location,job_type,salary} = job
     return (
         <div className="border p-10 rounded-lg">
             <div>
@@ -17,7 +18,9 @@ const FeatureJob = ({job}) => {
                 <p className="flex items-center"><CiLocationOn className="text-2xl"></CiLocationOn> {location}</p>
                 <p className="flex items-center"><AiOutlineDollarCircle className="text-2xl"></AiOutlineDollarCircle>{salary}</p>
             </div>
-            <button className="text-white text-xl font-bold px-7 py-4 rounded-lg bg-gradient-to-r from-[#7E90FE] to-[#9873FF] mt-6">View Details</button>
+           <Link to={`/job/:${id}`}>
+           <button className="text-white text-xl font-bold px-7 py-4 rounded-lg bg-gradient-to-r from-[#7E90FE] to-[#9873FF] mt-6">View Details</button>
+           </Link>
         </div>
     );
 };
