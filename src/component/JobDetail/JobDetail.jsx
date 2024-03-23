@@ -1,17 +1,25 @@
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { AiOutlineDollar } from "react-icons/ai";
 import { HiOutlineCalendarDays } from "react-icons/hi2";
 import { BsTelephone } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
 
-import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveToLocalStorage } from '../../Utlity/localstorage';
+
 
 const JobDetail = () => {
     const jobs = useLoaderData()
     const {Id} = useParams()
     // console.log(jobs,Id);
     const job = jobs.find( j => j.id == Id )
-    const {logo,job_title,job_description,job_responsibility,educational_requirements,experiences,contact_information,salary,remote_or_onsite,company_name,location,job_type} = job
+    const {id,logo,job_title,job_description,job_responsibility,educational_requirements,experiences,contact_information,salary,remote_or_onsite,company_name,location,job_type} = job
+    const handleApplyJob = (id) =>{
+        toast.success('Application Successful')
+        saveToLocalStorage(id)
+    }
     return (
        <section className='max-w-screen-xl mx-auto'>
             <h1 className='text-center text-[#1A1919] mb-32 text-3xl font-bold'>Job  Details</h1>
@@ -39,7 +47,8 @@ const JobDetail = () => {
                     <p className='text-[#474747] font-bold text-lg mt-4 flex items-center flex-row'><MdOutlineEmail className="text-2xl text-[#9873FF]"></MdOutlineEmail>Email : <span className='text-[#757575] text-lg font-medium'>{contact_information.email}</span></p>
                     <p className='text-[#474747] font-bold text-lg mt-4 flex items-center flex-row'><CiLocationOn className="text-2xl text-[#9873FF]"></CiLocationOn>Address : <span className='text-[#757575] text-lg font-medium'>{contact_information.address}</span></p>
                     </div>
-                    <Link to='/appliedjobs'><button className="text-white text-xl font-bold w-full mt-6 py-4 rounded-lg bg-gradient-to-r from-[#7E90FE] to-[#9873FF]">Apply Now</button></Link>
+                <button className="text-white text-xl font-bold w-full mt-6 py-4 rounded-lg bg-gradient-to-r from-[#7E90FE] to-[#9873FF]" onClick={() => handleApplyJob(id)}>Apply Now</button>
+                     <ToastContainer></ToastContainer>
                 </div>
             </div>
        </section>
