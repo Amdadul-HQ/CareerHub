@@ -22,7 +22,7 @@ const AppliedJob = ({appliedjob}) => {
                 </div>
             </div>
             <Link to={`/job/${id}`}>
-           <button className="text-white text-xl font-bold px-7 py-4 rounded-lg bg-gradient-to-r from-[#7E90FE] to-[#9873FF] mt-6">View Details</button>
+           <button className="ml-96 text-white text-xl font-bold px-7 py-4 rounded-lg bg-gradient-to-r from-[#7E90FE] to-[#9873FF] mt-6">View Details</button>
            </Link>
         </div>
     );
