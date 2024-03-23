@@ -4,7 +4,7 @@ import FeatureJob from "../FeatureJob/FeatureJob";
 
 const FeatureJobs = () => {
     const [jobs, setJobs] = useState([]);
-    const [showJobs,setShowJobs] = useState(4)
+    const [showJobs,setShowJobs] = useState(2)
     useEffect( () => {
         fetch('jobs.json')
         .then( res => res.json())
@@ -22,7 +22,7 @@ const FeatureJobs = () => {
              }
              </div>
             <div className="flex justify-center">
-            <button onClick={ () => setShowJobs(jobs.length)} className={`text-white text-xl font-bold px-7 py-4 justify-center rounded-lg bg-gradient-to-r from-[#7E90FE] to-[#9873FF] mt-6 ${showJobs == jobs.length ? 'hidden' : ''}`}>See All Jobs</button>
+            <button onClick={ () => setShowJobs(showJobs+2)} className={`text-white text-xl font-bold px-7 py-4 justify-center rounded-lg bg-gradient-to-r from-[#7E90FE] to-[#9873FF] mt-6 ${showJobs == jobs.length ? 'hidden' : ''}`}>See All Jobs</button>
             </div>
         </section>
     );

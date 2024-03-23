@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useLocation, useParams } from 'react-router-dom';
 import { AiOutlineDollar } from "react-icons/ai";
 import { HiOutlineCalendarDays } from "react-icons/hi2";
 import { BsTelephone } from "react-icons/bs";
@@ -12,10 +12,15 @@ import { saveToLocalStorage } from '../../Utlity/localstorage';
 
 const JobDetail = () => {
     const jobs = useLoaderData()
-    const {Id} = useParams()
+    const {Id} = useParams();
+
+    const location = useLocation()
+    console.log(location);
     // console.log(jobs,Id);
-    const job = jobs.find( j => j.id == Id )
-    const {id,logo,job_title,job_description,job_responsibility,educational_requirements,experiences,contact_information,salary,remote_or_onsite,company_name,location,job_type} = job
+    // const job = jobs.find( j => j.id == Id )
+    const job = jobs ? jobs.find(j=>j.id ==Id) : [];
+    console.log(jobs);
+    const {id,logo,job_title,job_description,job_responsibility,educational_requirements,experiences,contact_information,salary} = job
     const handleApplyJob = (id) =>{
         toast.success('Application Successful')
         saveToLocalStorage(id)

@@ -10,8 +10,8 @@ const AppliedJob = ({appliedjob}) => {
                 <img className="" src={logo} alt="" />
             </div>
             <div className="space-y-5">
-                <h1>{job_title}</h1>
-                <p>{company_name}</p>
+                <h1 className="text-[#474747] text-2xl font-bold mt-8">{job_title}</h1>
+                <p className="text-[#757575] text-xl font-semibold mt-2">{company_name}</p>
                 <div className="text-[#9873FF] text-base font-bold flex gap-x-4 mt-4">
                     <button className="px-5 py-2 rounded border border-[#7E90FE]">{remote_or_onsite}</button>
                     <button className="px-5 py-2 rounded border border-[#7E90FE]">{job_type}</button>
