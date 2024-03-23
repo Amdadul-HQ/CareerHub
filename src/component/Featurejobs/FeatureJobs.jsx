@@ -4,6 +4,7 @@ import FeatureJob from "../FeatureJob/FeatureJob";
 
 const FeatureJobs = () => {
     const [jobs, setJobs] = useState([]);
+    const [showJobs,setShowJobs] = useState(4)
     useEffect( () => {
         fetch('jobs.json')
         .then( res => res.json())
@@ -17,9 +18,12 @@ const FeatureJobs = () => {
              </Pageheading>
              <div className="grid  grid-cols-2 gap-6">
              {
-                jobs.map(job => <FeatureJob key={job.id} job={job} ></FeatureJob>)
+               jobs.slice(0,showJobs).map(job => <FeatureJob key={job.id} job={job} ></FeatureJob>)
              }
              </div>
+            <div className="flex justify-center">
+            <button onClick={ () => setShowJobs(jobs.length)} className={`text-white text-xl font-bold px-7 py-4 justify-center rounded-lg bg-gradient-to-r from-[#7E90FE] to-[#9873FF] mt-6 ${showJobs == jobs.length ? 'hidden' : ''}`}>See All Jobs</button>
+            </div>
         </section>
     );
 };
