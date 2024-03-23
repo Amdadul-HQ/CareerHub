@@ -18,7 +18,7 @@ const FeatureJob = ({job}) => {
                 <p className="flex items-center"><CiLocationOn className="text-2xl"></CiLocationOn> {location}</p>
                 <p className="flex items-center"><AiOutlineDollarCircle className="text-2xl"></AiOutlineDollarCircle>{salary}</p>
             </div>
-           <Link to={`/job/:${id}`}>
+           <Link to={`/job/${id}`}>
            <button className="text-white text-xl font-bold px-7 py-4 rounded-lg bg-gradient-to-r from-[#7E90FE] to-[#9873FF] mt-6">View Details</button>
            </Link>
         </div>
